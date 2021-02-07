@@ -1,0 +1,29 @@
+{
+  "name": "backbiblioteca",
+  "version": "1.0.0",
+  "description": "biblioteca virtual de alquiler de libros",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "build": "npm install && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "biblioteca",
+    "node",
+    "express",
+    "sequlize",
+    "mysql"
+  ],
+  "author": "Joao Vilca",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.17",
+    "sequelize": "^6.5.0"
+  }
+}
