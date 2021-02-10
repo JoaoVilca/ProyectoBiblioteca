@@ -30,20 +30,28 @@ const Cabecera = cabecera_model(conexion);
 
 Categoria.hasMany(Libro, {foreignKey:{name:'categoria_id', allowNull:false}})
 Libro.belongsTo(Categoria, {foreignKey:'categoria_id'})
+
 Libro.hasMany(Carrito, {foreignKey:{name:'libro_id', allowNull:false}})
 Carrito.belongsTo(Libro, {foreignKey:'libro_id'})
+
 Imagen.hasOne(Libro,{foreignKey:{name:'imagen_id', allowNull:false}})
 Libro.belongsTo(Imagen, {foreignKey:'imagen_id'})
+
 Imagen.hasOne(Usuario, {foreignKey:{name:'imagen_id', allowNull:false}})
 Usuario.belongsTo(Imagen, {foreignKey:'imagen_id'})
+
 Usuario.hasOne(Carrito,{foreignKey:{name:'usuario_id', allowNull:false}})
 Carrito.belongsTo(Usuario, {foreignKey:'usuario_id'})
+
 Usuario.hasMany(Cabecera, {foreignKey:{name:'usuario_id', allowNull:false}})
 Cabecera.belongsTo(Usuario, {foreignKey:'usuario_id'})
+
 Alquiler.hasMany(DetalleAlquiler, {foreignKey:{name:'alquiler_id', allowNull:false}})
 DetalleAlquiler.belongsTo(Alquiler, {foreignKey:'alquiler_id'})
+
 Cabecera.hasMany(DetalleAlquiler, {foreignKey:{name:'cabecera_id', allowNull:false}})
 DetalleAlquiler.belongsTo(Cabecera, {foreignKey:'cabecera_id'})
+
 Libro.hasMany(DetalleAlquiler, {foreignKey:{name:'libro_id', allowNull:false}})
 DetalleAlquiler.belongsTo(Libro, {foreignKey:'libro_id'})
 
