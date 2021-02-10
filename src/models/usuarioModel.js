@@ -5,7 +5,7 @@ const usuario_model = (conexion) => {
     "usuarios",
     {
       usuarioId: {
-        primeryKey: true,
+        primaryKey: true,
         autoIncrement: true,
         allowNull: false,
         type: DataTypes.INTEGER,

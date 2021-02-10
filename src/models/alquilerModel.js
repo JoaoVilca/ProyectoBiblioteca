@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes, Sequelize } = require('sequelize')
 
 const alquiler_model = (conexion) => {
      const alquiler = conexion.define('alquileres', {
@@ -13,7 +13,7 @@ const alquiler_model = (conexion) => {
             type: DataTypes.DATE,
             allowNull: false,
             field: 'alquiler_fechain',
-            defaultValue: Date.now()
+            defaultValue: Sequelize.fn('now')
         },
         alquilerFechaFin: {
             type: DataTypes.DATE,
