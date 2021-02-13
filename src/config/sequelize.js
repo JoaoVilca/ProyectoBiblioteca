@@ -37,7 +37,7 @@ Carrito.belongsTo(Libro, {foreignKey:'libro_id'})
 Imagen.hasOne(Libro,{foreignKey:{name:'imagen_id', allowNull:false}})
 Libro.belongsTo(Imagen, {foreignKey:'imagen_id'})
 
-Imagen.hasOne(Usuario, {foreignKey:{name:'imagen_id', allowNull:false}})
+Imagen.hasOne(Usuario, {foreignKey:{name:'imagen_id'}})
 Usuario.belongsTo(Imagen, {foreignKey:'imagen_id'})
 
 Usuario.hasOne(Carrito,{foreignKey:{name:'usuario_id', allowNull:false}})

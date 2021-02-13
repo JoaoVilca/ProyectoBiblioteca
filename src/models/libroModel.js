@@ -41,11 +41,16 @@ const libro_model = (conexion) => {
           isUrl: true,
         },
         allowNull: false,
-        unique:true
+        unique: true,
       },
       libroCantidad: {
         type: DataTypes.INTEGER,
         field: "libro_cantidad",
+        allowNull: false,
+      },
+      libroDescargas: {
+        type: DataTypes.INTEGER,
+        field: "libro_descargas",
         allowNull: false,
       },
     },
