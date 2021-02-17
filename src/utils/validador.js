@@ -43,6 +43,9 @@ const wachiman = (req, res, next) => {
     });
   }
 };
+const validarAdmin=(req, res, next)=>{
+  
+}
 module.exports = {
   generarToken,
   wachiman,

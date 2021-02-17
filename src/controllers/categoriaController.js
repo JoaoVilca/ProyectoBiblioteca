@@ -63,44 +63,27 @@ const actualizarCategoria = (req, res) => {
         message: "Hubo un error al actualizar la categoria",
       });
     });
-
-  // try{
-  //     let {id} = req.params
-  //     let categoria = await Categoria.findByPk(id)
-  //     if(categoria){
-  //         let nuevaCategoria = await Categoria.update(req.body,{
-  //             where:{
-  //                 categoriaId:id
-  //             }
-  //         })
-  //         return res.status(201).json({
-  //             ok:true,
-  //             content:nuevaCategoria,
-  //             message:'Categoria actualizada'
-  //         })
-  //     }else{
-  //         return res.status(404).json({
-  //             ok:false,
-  //             content:null,
-  //             message:'La categoria no existe'
-  //         })
-  //     }
-  // }catch(error){
-  //     return res.status(500).json({
-  //         ok:true,
-  //         content:error,
-  //         message:'Hubo un error al actualizar la categoria'
-  //     })
-  // }
 };
 const eliminarCategoria = async (req, res) => {
-  let { id } = req.params;
-  const categoria = await Categoria.destroy({
-    where:{
-      categoriaId:id
-    }
-  });
-
+  try {
+    let { id } = req.params;
+    const categoria = await Categoria.destroy({
+      where: {
+        categoriaId: id,
+      },
+    });
+    return res.status(201).json({
+      ok: true,
+      content: categoria,
+      message: "Se elimino la categoria exitosamente",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      content: error,
+      message: "Hubo un error al eliminar la categoria",
+    });
+  }
 };
 module.exports = {
   crearCategoria,
