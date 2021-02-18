@@ -1,7 +1,6 @@
 const { Sequelize } = require("sequelize");
 const libro_model = require("../models/libroModel");
 const categoria_model = require("../models/categoriaModel");
-const alquiler_model = require("../models/alquilerModel");
 const carrito_model = require("../models/carritoModel");
 const imagen_model = require("../models/imagenModel");
 const usuario_model = require("../models/usuarioModel");
@@ -22,7 +21,6 @@ const conexion = new Sequelize("bibliotecaVirtual", "root", "123456", {
 const Libro = libro_model(conexion);
 const Categoria = categoria_model(conexion);
 const Carrito = carrito_model(conexion);
-const Alquiler = alquiler_model(conexion);
 const Imagen = imagen_model(conexion);
 const Usuario = usuario_model(conexion);
 const DetalleAlquiler = detalle_alquiler_model(conexion);
@@ -46,9 +44,6 @@ Carrito.belongsTo(Usuario, {foreignKey:'usuario_id'})
 Usuario.hasMany(Cabecera, {foreignKey:{name:'usuario_id', allowNull:false}})
 Cabecera.belongsTo(Usuario, {foreignKey:'usuario_id'})
 
-Alquiler.hasMany(DetalleAlquiler, {foreignKey:{name:'alquiler_id', allowNull:false}})
-DetalleAlquiler.belongsTo(Alquiler, {foreignKey:'alquiler_id'})
-
 Cabecera.hasMany(DetalleAlquiler, {foreignKey:{name:'cabecera_id', allowNull:false}})
 DetalleAlquiler.belongsTo(Cabecera, {foreignKey:'cabecera_id'})
 
@@ -61,7 +56,6 @@ module.exports = {
   Cabecera,
   DetalleAlquiler,
   Imagen,
-  Alquiler,
   Carrito,
   Categoria,
   Libro,
