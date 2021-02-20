@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Google Fonts: seleccionamos el tipo de letra POPPINS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&family=Roboto:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome: Para importar iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <title>BestStore | Ecomerce Website</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <h1>Biblioteca Virtual</h1>
+          </div>
+
+          <nav>
+            <ul id="MenuItems">
+              <li><a href=""></a>Iinicio</li>
+              <li><a href=""></a>Productos</li>
+              <li><a href=""></a>Iniciar Sesion</li>
+            </ul>
+
+
+          </nav>
+          <img src="./images/cart.png" alt="" width="30px" height="30px" />
+          <img src="./images/menu.png" class="menu-icon" onclick="menutoggle()"/>
+        </div>
+
+        <div class="row">
+          <div class="col-2">
+            <h1>
+              Sigamos Leyendo en Casa
+            </h1>
+            <h3>Te llevamos el conocimiento a tu casa! <br /></h3>
+            <br/>
+            <p>
+              El éxito no siempre se trata de la grandeza. 
+              Se trata de coherencia. <br /> El trabajo duro constante conduce al éxito. 
+              La grandeza vendrá. 
+            </p>
+            <a href="" class="btn">Empezar a Leer Ahora &#8594;</a>
+          </div>
+          <div class="col-4">
+            <img src="./images/product-1.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- feature categories -->
+
+    <div class="categories">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-3">
+            <img src="./images/category-1.jpg" alt="" />
+          </div>
+          <div class="col-3">
+            <img src="./images/category-2.jpg" alt="" />
+          </div>
+          <div class="col-3">
+            <img src="./images/category-3.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- products more popular -->
+    <div class="small-container">
+      <h2 class="title">Productos mas Populares</h2>
+      <div class="row">
+        <div class="col-4">
+          <img src="./images/product-1.jpg" alt="" />
+          <h4>Java Script The Definitive Guide</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-2.jpg" alt="" />
+          <h4>Eloquent JavaScript</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-3.jpg" alt="" />
+          <h4>Modern JavaScript For The Impatient</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-4.jpg" alt="" />
+          <h4>JavaScript The Good Parts</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+      </div>
+
+      <!-- Ultimos Productos -->
+      <h2 class="title">Ultimos Productos</h2>
+      <div class="row">
+        <div class="col-4">
+          <img src="./images/product-5.jpg" alt="" />
+          <h4>Modern JavaScript For The Impatient</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-6.jpg" alt="" />
+          <h4>JavaScript The Good Parts</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-7.jpg" alt="" />
+          <h4>Eloquent JavaScript</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-8.jpg" alt="" />
+          <h4>Java Script The Definitive Guide</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-9.jpg" alt="" />
+          <h4>Java Script The Definitive Guide</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-10.jpg" alt="" />
+          <h4>Eloquent JavaScript</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-11.jpg" alt="" />
+          <h4>Modern JavaScript For The Impatient</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="./images/product-12.jpg" alt="" />
+          <h4>JavaScript The Good Parts</h4>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>S/50.00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- oferta -->
+    <div class="offer">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-3">
+            <img src="./images/exclusive.jpg" alt="" class="offer-img" />
+          </div>
+          <div class="col-2">
+            <p>Exclusivo Disponible en BibliotecaVirtual</p>
+            <h1>Finanzas Coorporativas</h1>
+            <small>
+              Estados financieros y flujo de efectivo - 
+              Los mercado financieros y el valor presente neto: 
+              los primeros principios de las finanzas - Valor 
+              presente neto - Valuación de bonos y acciones
+            </small>
+            <br/>
+            <a href="" class="btn">Comprar Ahora &#8594;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- testimonial -->
+    <div class="testimonial">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-3">
+            <i class="fas fa-quote-left"></i>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+              adipisci consectetur eius voluptas aperiam eligendi maxime dicta,
+              ipsam, harum facilis laudantium veritatis, velit similique
+              corporis odio doloribus neque autem sint!
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <img src="./images/user-1.png" alt="" />
+            <h3>Monica Huiza</h3>
+          </div>
+          <div class="col-3">
+            <i class="fas fa-quote-left"></i>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+              adipisci consectetur eius voluptas aperiam eligendi maxime dicta,
+              ipsam, harum facilis laudantium veritatis, velit similique
+              corporis odio doloribus neque autem sint!
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <img src="./images/user-2.png" alt="" />
+            <h3>Joao Junior</h3>
+          </div>
+          <div class="col-3">
+            <i class="fas fa-quote-left"></i>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+              adipisci consectetur eius voluptas aperiam eligendi maxime dicta,
+              ipsam, harum facilis laudantium veritatis, velit similique
+              corporis odio doloribus neque autem sint!
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <img src="./images/user-3.png" alt="" />
+            <h3>Denisse Maribel</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- marcas -->
+    <div class="brands">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-5">
+            <img src="./images/logo-godrej.png" alt="" />
+          </div>
+          <div class="col-5">
+            <img src="./images/logo-oppo.png" alt="" />
+          </div>
+          <div class="col-5">
+            <img src="./images/logo-coca-cola.png" alt="" />
+          </div>
+          <div class="col-5">
+            <img src="./images/logo-paypal.png" alt="" />
+          </div>
+          <div class="col-5">
+            <img src="./images/logo-philips.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Descargar nuestra App</h3>
+            <p>Descargar la aplicacion para Android y ios mobile</p>
+            <div class="app-logo">
+                <img src="./images/play-store.png" alt="">
+                <img src="./images/app-store.png" alt="">
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <h1> Biblioteca Virtual</h1>
+            <br/>
+            <p>
+              Nuestro propósito es hacer que el placer y los beneficios de la lectura sean accesibles de manera sostenible para muchos
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Enlaces útiles</h3>
+            <ul>
+              <li>Cupones</li>
+              <li>Entrada al blog</li>
+              <li>Politica de devolucion</li>
+              <li>Únete y afiliate</li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h3>Síguenos</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2021 - Grupo 5 CodiGo</p>
+      </div>
+    </div>
+
+<script src="./toggleMenu.js"></script>
+
+  </body>
+</html>
