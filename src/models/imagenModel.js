@@ -18,7 +18,7 @@ const imagen_model = (conexion) => {
     },
     {
       tableName: "t_imagen",
-      timestamps: false,
+      timestamps: true,
     }
   );
   return imagen;

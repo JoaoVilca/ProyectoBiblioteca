@@ -5,6 +5,8 @@ const libro_router = require("../routes/libroRoutes");
 const categoria_router = require("../routes/categoriaRouter");
 const imagen_router = require("../routes/imagenRouter");
 const usuario_router = require("../routes/usuarioRouter");
+const carrito_router = require("../routes/carritoRouter");
+const alquiler_router = require("../routes/alquilerRouter");
 
 module.exports = class Server {
   constructor() {
@@ -36,11 +38,13 @@ module.exports = class Server {
     this.app.use("", categoria_router);
     this.app.use("", imagen_router);
     this.app.use("", usuario_router);
+    this.app.use("", carrito_router);
+    this.app.use("", alquiler_router);
   }
   start() {
     this.app.listen(this.puerto, () => {
       console.log("Servidor corriendo exitosamente.");
-      conexion.sync({force:true}).then(() => {
+      conexion.sync().then(() => {
         console.log("Base de datos sincronizada correctamente.");
       });
     });

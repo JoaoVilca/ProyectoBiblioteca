@@ -43,10 +43,13 @@ const libro_model = (conexion) => {
         allowNull: false,
         unique: true,
       },
-      libroCantidad: {
-        type: DataTypes.INTEGER,
-        field: "libro_cantidad",
+      libroPrecioSemana: {
+        type: DataTypes.DECIMAL(5.2),
+        field: "libro_precio_semana",
         allowNull: false,
+        validate:{
+          isDecimal:true
+        }
       },
       libroDescargas: {
         type: DataTypes.INTEGER,
@@ -56,7 +59,7 @@ const libro_model = (conexion) => {
     },
     {
       tableName: "t_libro",
-      timestamps: false,
+      timestamps: true,
     }
   );
   return libro;

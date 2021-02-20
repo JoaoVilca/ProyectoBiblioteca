@@ -1,9 +1,15 @@
 const { Carrito } = require("../config/sequelize");
 
 const crearCarrito = async (req, res) => {
+  const {carritoSemanas, libro}=req.body
+  const { usuarioId } = req.user;
   try {
-    const carrito = await Carrito.create(req.body);
-    return res.ststus(201).json({
+    const carrito = await Carrito.create({
+      carritoSemanas:carritoSemanas,
+      libro_id:libro,
+      usuario_id: usuarioId,
+    });
+    return res.status(201).json({
       ok: true,
       content: carrito,
       message: "Carrito creado con exito",

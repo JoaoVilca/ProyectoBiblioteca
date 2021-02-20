@@ -53,7 +53,7 @@ const usuario_model = (conexion) => {
     },
     {
       tableName: "t_usuario",
-      timestapms: false,
+      timestamps: true,
     }
   );
   usuario.prototype.setSaltAndHash = function (password) {

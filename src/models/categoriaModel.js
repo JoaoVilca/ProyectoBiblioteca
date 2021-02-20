@@ -21,7 +21,7 @@ const categoria_model = (conexion) => {
     },
     {
       tableName: "t_categoria",
-      timestamps: false,
+      timestamps: true,
     }
   );
   return categoria;

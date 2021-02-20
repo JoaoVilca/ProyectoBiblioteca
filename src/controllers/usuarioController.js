@@ -27,8 +27,6 @@ const login = async (req, res) => {
       usuarioCorreo: correo,
     },
   });
-  console.log(correo);
-  console.log(usuarioEncontrado);
   if (usuarioEncontrado) {
     let resultado = usuarioEncontrado.validarPassword(password);
     console.log(resultado);
@@ -37,7 +35,7 @@ const login = async (req, res) => {
         ok: true,
         content: [
           usuarioEncontrado.usuarioTipo,
-          generarToken(usuarioEncontrado.usuarioId),
+          generarToken({id:usuarioEncontrado.usuarioId,nombre:usuarioEncontrado.usuarioNombre}),
         ],
       });
     }

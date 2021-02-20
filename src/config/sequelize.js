@@ -29,10 +29,10 @@ const Cabecera = cabecera_model(conexion);
 Categoria.hasMany(Libro, {foreignKey:{name:'categoria_id', allowNull:false}})
 Libro.belongsTo(Categoria, {foreignKey:'categoria_id'})
 
-Libro.hasMany(Carrito, {foreignKey:{name:'libro_id', allowNull:false}})
+Libro.hasMany(Carrito, {foreignKey:'libro_id'})
 Carrito.belongsTo(Libro, {foreignKey:'libro_id'})
 
-Imagen.hasOne(Libro,{foreignKey:{name:'imagen_id', allowNull:false}})
+Imagen.hasOne(Libro,{foreignKey:'imagen_id'})
 Libro.belongsTo(Imagen, {foreignKey:'imagen_id'})
 
 Imagen.hasOne(Usuario, {foreignKey:{name:'imagen_id'}})

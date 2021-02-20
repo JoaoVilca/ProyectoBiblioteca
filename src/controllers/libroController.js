@@ -1,14 +1,47 @@
-const { Libro, Alquiler, Usuario } = require("../config/sequelize");
+const { Libro, Alquiler, Usuario, Categoria } = require("../config/sequelize");
 
 const crearLibro = async (req, res) => {
+  const {
+    titulo,
+    autor,
+    descripcion,
+    anio,
+    editorial,
+    url,
+    precio,
+    descargas,
+    categoria,
+  } = req.body;
   try {
-    nuevoLibro = await Libro.create(req.body);
-    return res.json({
-      ok: true,
-      content: nuevoLibro,
-      message: "Libro creado con exito",
-    });
+    let categoriaEncontrada = await Categoria.findByPk(categoria);
+    console.log(titulo)
+    console.log(categoriaEncontrada.categoriaId);
+    if (categoriaEncontrada) {
+      let nuevoLibro = await Libro.create({
+        libroTitulo:titulo,
+        libroAutor:autor,
+        libroDescripcion:descripcion,
+        libroAnio:anio,
+        libroEditorial:editorial,
+        libroURL:url,
+        libroPrecioSemana:precio,
+        libroDescargas:descargas,
+        categoria_id:categoria,
+      });
+      return res.json({
+        ok: true,
+        content: nuevoLibro,
+        message: "Libro creado con exito",
+      });
+    } else {
+      return res.json({
+        ok: false,
+        content: null,
+        message: "No existe la categoria",
+      });
+    }
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       ok: false,
       content: error,

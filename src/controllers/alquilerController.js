@@ -1,110 +1,91 @@
-const { Alquiler } = require("../config/sequelize");
+const {
+  DetalleAlquiler,
+  conexion,
+  Usuario,
+  Libro,
+  Cabecera,
+  Carrito,
+} = require("../config/sequelize");
 
-const registrarAlquiler = async (req, res) => {
+const crearAlquiler = async (req, res) => {
+  const transaccion = await conexion.transaction();
+  let { fecha, subtotal, igv, total, usuario, libros } = req.body;
   try {
-    const alquiler = await Alquiler.create(req.body);
-    return res.status(201).json({
-      ok: true,
-      conent: alquiler,
-      message: "Se registro el alquiler con exito",
-    });
-  } catch (error) {
-    return res.status(500).json({
-      ok: false,
-      content: error,
-      message: "Hubo un error al registrar el alquiler",
-    });
-  }
-};
-const actualizarAlquiler = (req, res) => {
-  let { id } = req.params;
-  Alquiler.update(req.body, {
-    where: {
-      alquilerId: id,
-    },
-  })
-    .then(async (respuesta) => {
-      if (respuesta[0] !== 0) {
-        let alquiler = await Alquiler.findByPk(id);
-        return res.status(201).json({
-          ok: true,
-          content: alquiler,
-          message: "Se actualizo el alquiler con exito",
-        });
-      } else {
-        return res.status(401).json({
-          ok: false,
-          content: null,
-          message: "No se encontro el alquiler",
-        });
-      }
-    })
-    .catch((error) => {
-      return res.status(500).json({
-        ok: false,
-        content: error,
-        message: "Hubo un error al actualizar el alquiler",
+    let usuarioEncontrado = await Usuario.findByPk(usuario);
+    let libroEncontrado = true;
+    for (const key in libros) {
+      let libro = await Libro.findOne({
+        where: {
+          libroId: libros[key].libro,
+        },
       });
-    });
-};
-const eliminarAlquiler = async () => {
-  let { id } = req.params;
-  try {
-    const alquiler = await Alquiler.destroy(id);
-    return res.status(201).json({
-      ok: true,
-      content: alquiler,
-      message: "Se elimino el alquiler con exito",
-    });
-  } catch (error) {
-    return res.status(500).json({
-      ok: false,
-      content: error,
-      message: "Hubo un error al eliminar el alquiler",
-    });
-  }
-};
-const listarAlquileres = async (req, res) => {
-  try {
-    const alquileres = await Alquiler.findAll();
-    return res.status(201).json({
-      ok: true,
-      content: alquileres,
-      message: "Listado de alquileres",
-    });
-  } catch (error) {
-    return res.status(500).json({
-      ok: false,
-      content: error,
-      message: "Huno un error al listar los alquileres",
-    });
-  }
-};
-const listarPorfecha = async (req, res) => {
-  let { fecha } = req.params;
-  try {
-    const alquiler = await Alquiler.findAll({
+      if (libro === null) {
+        libroEncontrado = false;
+        break;
+      }
+    }
+    if (libroEncontrado === false || usuarioEncontrado === null) {
+      return res.status(400).json({
+        ok: false,
+        content: null,
+        message: "Producto o usuario incorrectos, intente nuevamente",
+      });
+    }
+    let cabeceraCreada = await Cabecera.create(
+      {
+        cabeceraFecha: fecha,
+        cabeceraSubtotal: subtotal,
+        cabeceraIGV: igv,
+        cabeceraTotal: total,
+        usuario_id: usuarioEncontrado.usuarioId,
+      },
+      { transaction: transaction }
+    );
+    for (posicion in libros) {
+      let libro = await Libro.findByPk(libros[posicion].libro);
+      await DetalleAlquiler.create(
+        {
+          detallePrecioSemana: libro.libroPrecioSemana,
+          detalleCantidadSemanas: libros[posicion].semanas,
+          detalleTotal: libro.libroPrecioSemana * libros[posicion].semanas,
+          libro_id: libro.libroId,
+          cabalquiler_id: cabeceraCreada.cabeceraId,
+        },
+        {
+          transaction: transaccion,
+        }
+      );
+    }
+    let carritoEncontrado = await Carrito.findOne({
       where: {
-        alquilerFechaIn: fecha,
+        usuario_id: usuarioEncontrado.usuarioId,
       },
     });
+    if (carritoEncontrado) {
+      Carrito.destroy(
+        {
+          where: {
+            usuario_id: usuarioEncontrado.usuarioId,
+          },
+        },
+        { transaction: transaccion }
+      );
+    }
+    await transaccion.commit();
     return res.status(201).json({
       ok: true,
-      content: alquiler,
-      message: `Alquileres de la fecha: ${fecha}`,
+      content: null,
+      message: "El alquiler se realizo con exito",
     });
   } catch (error) {
     return res.status(500).json({
-      ok: true,
+      ok: false,
       content: error,
-      message: `Hubo un error al listar los alquileres de: ${fecha}`,
+      message: "Hubo un error al crear el alquiler",
     });
   }
 };
+
 module.exports = {
-  registrarAlquiler,
-  actualizarAlquiler,
-  eliminarAlquiler,
-  listarAlquileres,
-  listarPorfecha,
+  crearAlquiler,
 };

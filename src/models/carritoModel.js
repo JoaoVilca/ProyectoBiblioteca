@@ -9,14 +9,14 @@ const carrito_model = (conexion) => {
             field: 'carrito_id',
             type: DataTypes.INTEGER
         },
-        carritoCantidad: {
+        carritoSemanas: {
             type: DataTypes.INTEGER,
-            field: 'carrito_cantidad',
+            field: 'carrito_semanas',
             allowNull: false
-        }
+        },
     }, {
         tableName: 't_carrito',
-        timestamps: false
+        timestamps:true
     })
     return carrito
 }
